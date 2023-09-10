@@ -41,39 +41,39 @@ describe("GET /companies/:code", () => {
     });
 });
 
-// describe("POST /", () => {
-//     test("Creates a new company", async () => {
-//         const newCompany = { code: 'new', name: 'NewCompany', description: 'This is a new company' };
-//         const resp = await request(app).post('/').send(newCompany);
-//         expect(resp.statusCode).toBe(201);
-//         expect(resp.body).toEqual({ company: newCompany });
-//     });
-// });
+describe("POST /", () => {
+    test("Creates a new company", async () => {
+        const newCompany = { code: 'new', name: 'NewCompany', description: 'This is a new company' };
+        const resp = await request(app).post('/').send(newCompany);
+        expect(resp.statusCode).toBe(201);
+        expect(resp.body).toEqual({ company: newCompany });
+    });
+});
 
-// describe("PUT /:code", () => {
-//     test("Updates a company", async () => {
-//         const updates = { name: 'UpdatedCompany', description: 'Updated description' };
-//         const resp = await request(app).put(`/${testCompany.code}`).send(updates);
-//         expect(resp.statusCode).toBe(200);
-//         expect(resp.body).toEqual({ company: { code: testCompany.code, ...updates } });
-//     });
+describe("PUT /:code", () => {
+    test("Updates a company", async () => {
+        const updates = { name: 'UpdatedCompany', description: 'Updated description' };
+        const resp = await request(app).put(`/${testCompany.code}`).send(updates);
+        expect(resp.statusCode).toBe(200);
+        expect(resp.body).toEqual({ company: { code: testCompany.code, ...updates } });
+    });
 
-//     test("Responds with 404 if can't find company", async () => {
-//         const resp = await request(app).put('/fakecompany').send({ name: 'FakeCompany', description: 'Fake description' });
-//         expect(resp.statusCode).toBe(404);
-//     });
-// });
+    test("Responds with 404 if can't find company", async () => {
+        const resp = await request(app).put('/fakecompany').send({ name: 'FakeCompany', description: 'Fake description' });
+        expect(resp.statusCode).toBe(404);
+    });
+});
 
-// describe("DELETE /:code", () => {
-//     test("Deletes a single company", async () => {
-//         const resp = await request(app).delete(`/${testCompany.code}`);
-//         expect(resp.statusCode).toBe(200);
-//         expect(resp.body).toEqual({ msg: 'DELETED!' });
-//     });
+describe("DELETE /:code", () => {
+    test("Deletes a single company", async () => {
+        const resp = await request(app).delete(`/${testCompany.code}`);
+        expect(resp.statusCode).toBe(200);
+        expect(resp.body).toEqual({ msg: 'DELETED!' });
+    });
 
-//     test("Responds with 404 if it can't find company", async () => {
-//         const resp = await request(app).delete('/fakecompany');
-//         expect(resp.statusCode).toBe(404);
-//     });
-// });
+    test("Responds with 404 if it can't find company", async () => {
+        const resp = await request(app).delete('/fakecompany');
+        expect(resp.statusCode).toBe(404);
+    });
+});
 
